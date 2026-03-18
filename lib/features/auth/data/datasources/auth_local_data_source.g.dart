@@ -1,0 +1,58 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'auth_local_data_source.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(authLocalDataSource)
+const authLocalDataSourceProvider = AuthLocalDataSourceProvider._();
+
+final class AuthLocalDataSourceProvider
+    extends
+        $FunctionalProvider<
+          AuthLocalDataSource,
+          AuthLocalDataSource,
+          AuthLocalDataSource
+        >
+    with $Provider<AuthLocalDataSource> {
+  const AuthLocalDataSourceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'authLocalDataSourceProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$authLocalDataSourceHash();
+
+  @$internal
+  @override
+  $ProviderElement<AuthLocalDataSource> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  AuthLocalDataSource create(Ref ref) {
+    return authLocalDataSource(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AuthLocalDataSource value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AuthLocalDataSource>(value),
+    );
+  }
+}
+
+String _$authLocalDataSourceHash() =>
+    r'497b83634e903492e785cbb8b4292b83297df03e';

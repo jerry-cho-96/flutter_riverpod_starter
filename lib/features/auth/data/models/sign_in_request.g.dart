@@ -1,0 +1,21 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'sign_in_request.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_SignInRequest _$SignInRequestFromJson(Map<String, dynamic> json) =>
+    _SignInRequest(
+      username: json['username'] as String,
+      password: json['password'] as String,
+      expiresInMins: (json['expiresInMins'] as num?)?.toInt() ?? 30,
+    );
+
+Map<String, dynamic> _$SignInRequestToJson(_SignInRequest instance) =>
+    <String, dynamic>{
+      'username': instance.username,
+      'password': instance.password,
+      'expiresInMins': instance.expiresInMins,
+    };

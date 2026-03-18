@@ -1,0 +1,66 @@
+[
+  {
+    "id": "p1",
+    "name": "Riverpod Notebook",
+    "description": "Daily planning notebook for product teams.",
+    "price": 12.5,
+    "category": "stationery",
+    "imageUrl": "https://example.com/products/p1.png"
+  },
+  {
+    "id": "p2",
+    "name": "Starter Pencil",
+    "description": "Soft graphite pencil for sketching ideas quickly.",
+    "price": 3.2,
+    "category": "stationery",
+    "imageUrl": "https://example.com/products/p2.png"
+  },
+  {
+    "id": "p3",
+    "name": "Mock Server Mug",
+    "description": "Ceramic mug for backend-free mornings.",
+    "price": 18.0,
+    "category": "lifestyle",
+    "imageUrl": "https://example.com/products/p3.png"
+  },
+  {
+    "id": "p4",
+    "name": "Riverpod Hoodie",
+    "description": "Warm hoodie for late-night shipping sessions.",
+    "price": 42.0,
+    "category": "apparel",
+    "imageUrl": "https://example.com/products/p4.png"
+  },
+  {
+    "id": "p5",
+    "name": "Provider Sticker Pack",
+    "description": "A sticker set for laptops and notebooks.",
+    "price": 7.5,
+    "category": "lifestyle",
+    "imageUrl": "https://example.com/products/p5.png"
+  },
+  {
+    "id": "p6",
+    "name": "Architecture Cards",
+    "description": "A card deck with feature-first design prompts.",
+    "price": 21.0,
+    "category": "stationery",
+    "imageUrl": "https://example.com/products/p6.png"
+  },
+  {
+    "id": "p7",
+    "name": "Async Water Bottle",
+    "description": "Insulated bottle for long build_runner sessions.",
+    "price": 24.0,
+    "category": "lifestyle",
+    "imageUrl": "https://example.com/products/p7.png"
+  },
+  {
+    "id": "p8",
+    "name": "Codegen Tee",
+    "description": "Cotton t-shirt with a tiny generated badge.",
+    "price": 29.0,
+    "category": "apparel",
+    "imageUrl": "https://example.com/products/p8.png"
+  }
+]
