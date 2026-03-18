@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:riverpod3_starter/features/auth/presentation/providers/auth_controller.dart';
 import 'package:riverpod3_starter/features/auth/presentation/providers/auth_form_controller.dart';
-import 'package:riverpod3_starter/shared/widgets/app_button.dart';
-import 'package:riverpod3_starter/shared/widgets/app_text_field.dart';
+import 'package:riverpod3_starter/shared/widgets/buttons/app_button.dart';
+import 'package:riverpod3_starter/shared/widgets/form/app_text_field.dart';
 
 class SignInForm extends ConsumerWidget {
   const SignInForm({super.key});

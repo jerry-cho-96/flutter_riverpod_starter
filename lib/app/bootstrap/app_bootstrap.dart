@@ -8,12 +8,8 @@ import 'package:riverpod3_starter/app/bootstrap/app_retry.dart';
 import 'package:riverpod3_starter/app/di/secure_storage_provider.dart';
 import 'package:riverpod3_starter/app/di/shared_preferences_provider.dart';
 import 'package:riverpod3_starter/app/env/app_env.dart';
-import 'package:riverpod3_starter/app/env/app_flavor.dart';
 
-Future<void> bootstrap({
-  required AppFlavor flavor,
-  required Widget child,
-}) async {
+Future<void> bootstrap({required AppEnv env, required Widget child}) async {
   final prefs = await SharedPreferences.getInstance();
   const secureStorage = FlutterSecureStorage();
 
@@ -22,7 +18,7 @@ Future<void> bootstrap({
       observers: [AppProviderObserver()],
       retry: appRetry,
       overrides: [
-        appEnvProvider.overrideWithValue(AppEnv.fromFlavor(flavor)),
+        appEnvProvider.overrideWithValue(env),
         sharedPreferencesProvider.overrideWithValue(prefs),
         secureStorageProvider.overrideWithValue(secureStorage),
       ],

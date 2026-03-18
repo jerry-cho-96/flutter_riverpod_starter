@@ -11,7 +11,6 @@ part of 'auth_session.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$AuthSession {
 
@@ -22,8 +21,6 @@ mixin _$AuthSession {
 @pragma('vm:prefer-inline')
 $AuthSessionCopyWith<AuthSession> get copyWith => _$AuthSessionCopyWithImpl<AuthSession>(this as AuthSession, _$identity);
 
-  /// Serializes this AuthSession to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
@@ -31,7 +28,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthSession&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.user, user) || other.user == user));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,accessToken,refreshToken,user);
 
@@ -211,11 +208,11 @@ return $default(_that.accessToken,_that.refreshToken,_that.user);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
+
 
 class _AuthSession implements AuthSession {
   const _AuthSession({required this.accessToken, required this.refreshToken, required this.user});
-  factory _AuthSession.fromJson(Map<String, dynamic> json) => _$AuthSessionFromJson(json);
+  
 
 @override final  String accessToken;
 @override final  String refreshToken;
@@ -227,17 +224,14 @@ class _AuthSession implements AuthSession {
 @pragma('vm:prefer-inline')
 _$AuthSessionCopyWith<_AuthSession> get copyWith => __$AuthSessionCopyWithImpl<_AuthSession>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$AuthSessionToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthSession&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.user, user) || other.user == user));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,accessToken,refreshToken,user);
 

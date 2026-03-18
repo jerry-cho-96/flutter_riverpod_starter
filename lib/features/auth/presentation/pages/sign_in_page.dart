@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:riverpod3_starter/features/auth/presentation/providers/auth_controller.dart';
 import 'package:riverpod3_starter/features/auth/presentation/widgets/sign_in_form.dart';
-import 'package:riverpod3_starter/shared/widgets/section_title.dart';
+import 'package:riverpod3_starter/shared/widgets/text/section_title.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({super.key});

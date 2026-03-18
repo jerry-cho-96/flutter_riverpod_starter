@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 import 'package:riverpod3_starter/core/error/app_exception.dart';
 import 'package:riverpod3_starter/core/utils/extensions.dart';
-import 'package:riverpod3_starter/features/products/data/datasources/products_remote_data_source.dart';
+import 'package:riverpod3_starter/features/products/data/datasources/remote/products_remote_data_source.dart';
 import 'package:riverpod3_starter/features/products/data/models/product_model.dart';
 import 'package:riverpod3_starter/features/products/data/models/products_page_model.dart';
 import 'package:riverpod3_starter/features/products/domain/entities/products_query.dart';

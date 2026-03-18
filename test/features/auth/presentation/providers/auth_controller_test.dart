@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/features/auth/domain/entities/auth_session.dart';
 import 'package:riverpod3_starter/features/auth/domain/entities/user.dart';
 import 'package:riverpod3_starter/features/auth/domain/repositories/auth_repository.dart';
 import 'package:riverpod3_starter/features/auth/presentation/providers/auth_controller.dart';
-import 'package:riverpod3_starter/features/auth/data/repositories/auth_repository_impl.dart';
 
 void main() {
   test('세션 복원 후 로그인 상태를 유지한다', () async {

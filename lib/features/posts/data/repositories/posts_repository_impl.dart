@@ -1,8 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:riverpod3_starter/app/env/app_env.dart';
 import 'package:riverpod3_starter/app/di/network_provider.dart';
-import 'package:riverpod3_starter/features/posts/data/datasources/dio_posts_remote_data_source.dart';
-import 'package:riverpod3_starter/features/posts/data/datasources/posts_remote_data_source.dart';
+import 'package:riverpod3_starter/core/network/api_client.dart';
+import 'package:riverpod3_starter/features/posts/data/datasources/remote/dio_posts_remote_data_source.dart';
+import 'package:riverpod3_starter/features/posts/data/datasources/remote/mock_posts_remote_data_source.dart';
+import 'package:riverpod3_starter/features/posts/data/datasources/remote/posts_remote_data_source.dart';
+import 'package:riverpod3_starter/features/posts/data/mappers/post_mapper.dart';
 import 'package:riverpod3_starter/features/posts/data/models/create_post_request.dart';
 import 'package:riverpod3_starter/features/posts/data/models/update_post_request.dart';
 import 'package:riverpod3_starter/features/posts/domain/entities/post.dart';
@@ -26,13 +30,13 @@ class PostsRepositoryImpl implements PostsRepository {
       pageSize: pageSize,
       searchTerm: searchTerm,
     );
-    return response.items.map((item) => Post.fromJson(item.toJson())).toList();
+    return response.items.map((item) => item.toEntity()).toList();
   }
 
   @override
   Future<Post> fetchPostDetail(int postId) async {
     final post = await remoteDataSource.fetchPostDetail(postId);
-    return Post.fromJson(post.toJson());
+    return post.toEntity();
   }
 
   @override
@@ -45,7 +49,7 @@ class PostsRepositoryImpl implements PostsRepository {
     final post = await remoteDataSource.createPost(
       CreatePostRequest(userId: userId, title: title, body: body, tags: tags),
     );
-    return Post.fromJson(post.toJson());
+    return post.toEntity();
   }
 
   @override
@@ -59,7 +63,7 @@ class PostsRepositoryImpl implements PostsRepository {
       postId,
       UpdatePostRequest(title: title, body: body, tags: tags),
     );
-    return Post.fromJson(post.toJson());
+    return post.toEntity();
   }
 
   @override
@@ -68,12 +72,15 @@ class PostsRepositoryImpl implements PostsRepository {
   }
 }
 
-@riverpod
-PostsRemoteDataSource postsRemoteDataSource(Ref ref) {
-  return DioPostsRemoteDataSource(ref.watch(apiClientProvider));
+PostsRemoteDataSource createPostsRemoteDataSource(ApiClient apiClient) {
+  return DioPostsRemoteDataSource(apiClient);
 }
 
 @riverpod
-PostsRepository postsRepository(Ref ref) {
-  return PostsRepositoryImpl(ref.watch(postsRemoteDataSourceProvider));
+PostsRemoteDataSource postsRemoteDataSource(Ref ref) {
+  final env = ref.watch(appEnvProvider);
+  return switch (env.apiMode) {
+    ApiMode.mock => const MockPostsRemoteDataSource(),
+    ApiMode.live => createPostsRemoteDataSource(ref.watch(apiClientProvider)),
+  };
 }

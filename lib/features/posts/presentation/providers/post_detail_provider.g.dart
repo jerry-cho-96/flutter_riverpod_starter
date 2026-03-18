@@ -58,7 +58,7 @@ final class PostDetailProvider
   }
 }
 
-String _$postDetailHash() => r'a5207dd6b5daf8b8c81173ab5bebd2fbfeaa69b9';
+String _$postDetailHash() => r'a962c256c26ec1a9d034816452841a4d7171cc71';
 
 final class PostDetailFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<Post>, int> {

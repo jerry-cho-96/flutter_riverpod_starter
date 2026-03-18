@@ -6,13 +6,13 @@ import 'package:riverpod3_starter/app/router/app_routes.dart';
 import 'package:riverpod3_starter/core/error/error_mapper.dart';
 import 'package:riverpod3_starter/core/error/failure.dart';
 import 'package:riverpod3_starter/core/utils/debounce.dart';
-import 'package:riverpod3_starter/core/widgets/async_value_view.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/posts_list_controller.dart';
-import 'package:riverpod3_starter/features/posts/presentation/providers/posts_mutation_service.dart';
+import 'package:riverpod3_starter/features/posts/presentation/providers/posts_mutation_controller.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/posts_query_controller.dart';
 import 'package:riverpod3_starter/features/posts/presentation/widgets/post_form_dialog.dart';
 import 'package:riverpod3_starter/features/posts/presentation/widgets/post_list_tile.dart';
-import 'package:riverpod3_starter/shared/widgets/app_scaffold.dart';
+import 'package:riverpod3_starter/shared/widgets/async/async_value_view.dart';
+import 'package:riverpod3_starter/shared/widgets/layout/app_scaffold.dart';
 
 class PostsPage extends ConsumerStatefulWidget {
   const PostsPage({super.key});
@@ -50,7 +50,7 @@ class _PostsPageState extends ConsumerState<PostsPage> {
             }
             try {
               await ref
-                  .read(postsMutationServiceProvider)
+                  .read(postsMutationControllerProvider)
                   .createPost(
                     userId: result.userId,
                     title: result.title,

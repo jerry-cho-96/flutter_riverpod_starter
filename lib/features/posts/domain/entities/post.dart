@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'post.freezed.dart';
-part 'post.g.dart';
 
 @freezed
 sealed class Post with _$Post {
@@ -15,6 +14,4 @@ sealed class Post with _$Post {
     @Default(0) int dislikes,
     @Default(0) int views,
   }) = _Post;
-
-  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 }

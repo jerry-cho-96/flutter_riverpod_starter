@@ -1,9 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:riverpod3_starter/app/env/app_env.dart';
 import 'package:riverpod3_starter/app/di/network_provider.dart';
-import 'package:riverpod3_starter/features/auth/data/datasources/auth_local_data_source.dart';
-import 'package:riverpod3_starter/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:riverpod3_starter/features/auth/data/datasources/dio_auth_remote_data_source.dart';
+import 'package:riverpod3_starter/core/network/api_client.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/local/auth_local_data_source.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/remote/auth_remote_data_source.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/remote/dio_auth_remote_data_source.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/remote/mock_auth_remote_data_source.dart';
 import 'package:riverpod3_starter/features/auth/data/mappers/auth_mapper.dart';
 import 'package:riverpod3_starter/features/auth/data/models/auth_session_model.dart';
 import 'package:riverpod3_starter/features/auth/data/models/refresh_token_request.dart';
@@ -69,13 +72,13 @@ class AuthRepositoryImpl implements AuthRepository {
 
 @riverpod
 AuthRemoteDataSource authRemoteDataSource(Ref ref) {
-  return DioAuthRemoteDataSource(ref.watch(apiClientProvider));
+  final env = ref.watch(appEnvProvider);
+  return switch (env.apiMode) {
+    ApiMode.mock => const MockAuthRemoteDataSource(),
+    ApiMode.live => createAuthRemoteDataSource(ref.watch(apiClientProvider)),
+  };
 }
 
-@riverpod
-AuthRepository authRepository(Ref ref) {
-  return AuthRepositoryImpl(
-    localDataSource: ref.watch(authLocalDataSourceProvider),
-    remoteDataSource: ref.watch(authRemoteDataSourceProvider),
-  );
+AuthRemoteDataSource createAuthRemoteDataSource(ApiClient apiClient) {
+  return DioAuthRemoteDataSource(apiClient);
 }

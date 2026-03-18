@@ -34,7 +34,7 @@ final class PostsListControllerProvider
 }
 
 String _$postsListControllerHash() =>
-    r'cf3f69c7d8cb6346d1f5145ec2650739817b1b7c';
+    r'56f60516a13a121eee88081f8746b7de1fe96343';
 
 abstract class _$PostsListController extends $AsyncNotifier<PagedState<Post>> {
   FutureOr<PagedState<Post>> build();

@@ -11,7 +11,6 @@ part of 'products_query.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ProductsQuery {
 
@@ -22,8 +21,6 @@ mixin _$ProductsQuery {
 @pragma('vm:prefer-inline')
 $ProductsQueryCopyWith<ProductsQuery> get copyWith => _$ProductsQueryCopyWithImpl<ProductsQuery>(this as ProductsQuery, _$identity);
 
-  /// Serializes this ProductsQuery to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
@@ -31,7 +28,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductsQuery&&(identical(other.category, category) || other.category == category)&&(identical(other.searchTerm, searchTerm) || other.searchTerm == searchTerm));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,category,searchTerm);
 
@@ -201,11 +198,11 @@ return $default(_that.category,_that.searchTerm);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
+
 
 class _ProductsQuery implements ProductsQuery {
   const _ProductsQuery({this.category = 'all', this.searchTerm = ''});
-  factory _ProductsQuery.fromJson(Map<String, dynamic> json) => _$ProductsQueryFromJson(json);
+  
 
 @override@JsonKey() final  String category;
 @override@JsonKey() final  String searchTerm;
@@ -216,17 +213,14 @@ class _ProductsQuery implements ProductsQuery {
 @pragma('vm:prefer-inline')
 _$ProductsQueryCopyWith<_ProductsQuery> get copyWith => __$ProductsQueryCopyWithImpl<_ProductsQuery>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$ProductsQueryToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductsQuery&&(identical(other.category, category) || other.category == category)&&(identical(other.searchTerm, searchTerm) || other.searchTerm == searchTerm));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,category,searchTerm);
 

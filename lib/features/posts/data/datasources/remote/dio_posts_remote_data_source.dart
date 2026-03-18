@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import 'package:riverpod3_starter/core/error/app_exception.dart';
 import 'package:riverpod3_starter/core/network/api_client.dart';
-import 'package:riverpod3_starter/features/posts/data/datasources/posts_remote_data_source.dart';
+import 'package:riverpod3_starter/features/posts/data/datasources/remote/posts_remote_data_source.dart';
 import 'package:riverpod3_starter/features/posts/data/models/create_post_request.dart';
 import 'package:riverpod3_starter/features/posts/data/models/post_model.dart';
 import 'package:riverpod3_starter/features/posts/data/models/posts_page_model.dart';

@@ -55,45 +55,4 @@ final class AuthRemoteDataSourceProvider
 }
 
 String _$authRemoteDataSourceHash() =>
-    r'127826face499dd33ef2077eae49b47644f9f77f';
-
-@ProviderFor(authRepository)
-const authRepositoryProvider = AuthRepositoryProvider._();
-
-final class AuthRepositoryProvider
-    extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
-    with $Provider<AuthRepository> {
-  const AuthRepositoryProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'authRepositoryProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$authRepositoryHash();
-
-  @$internal
-  @override
-  $ProviderElement<AuthRepository> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  AuthRepository create(Ref ref) {
-    return authRepository(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(AuthRepository value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<AuthRepository>(value),
-    );
-  }
-}
-
-String _$authRepositoryHash() => r'ddc1bd7dede293440f367d62836e29e34e13c213';
+    r'a0962edd7cf7a3bc210a9f7944b8bfa05bdf81cf';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:riverpod3_starter/core/widgets/app_empty_view.dart';
-import 'package:riverpod3_starter/core/widgets/app_error_view.dart';
-import 'package:riverpod3_starter/core/widgets/app_loading_view.dart';
+import 'package:riverpod3_starter/shared/widgets/feedback/app_empty_view.dart';
+import 'package:riverpod3_starter/shared/widgets/feedback/app_error_view.dart';
+import 'package:riverpod3_starter/shared/widgets/feedback/app_loading_view.dart';
 
 class AsyncValueView<T> extends StatelessWidget {
   const AsyncValueView({

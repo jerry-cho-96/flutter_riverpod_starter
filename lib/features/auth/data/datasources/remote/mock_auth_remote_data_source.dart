@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 import 'package:riverpod3_starter/core/error/app_exception.dart';
-import 'package:riverpod3_starter/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/remote/auth_remote_data_source.dart';
 import 'package:riverpod3_starter/features/auth/data/models/auth_session_model.dart';
 import 'package:riverpod3_starter/features/auth/data/models/refresh_token_request.dart';
 import 'package:riverpod3_starter/features/auth/data/models/refresh_token_response.dart';

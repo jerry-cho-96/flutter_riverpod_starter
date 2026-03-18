@@ -1,8 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/core/utils/extensions.dart';
-import 'package:riverpod3_starter/features/posts/data/repositories/posts_repository_impl.dart';
 import 'package:riverpod3_starter/features/posts/domain/entities/post.dart';
+import 'package:riverpod3_starter/features/posts/domain/usecases/get_post_detail.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/posts_list_controller.dart';
 
 part 'post_detail_provider.g.dart';
@@ -16,5 +17,5 @@ Future<Post> postDetail(Ref ref, int postId) async {
   if (cached != null) {
     return cached;
   }
-  return ref.watch(postsRepositoryProvider).fetchPostDetail(postId);
+  return GetPostDetail(ref.watch(postsRepositoryProvider))(postId);
 }

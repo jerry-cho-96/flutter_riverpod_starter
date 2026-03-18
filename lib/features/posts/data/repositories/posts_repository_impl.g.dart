@@ -55,46 +55,4 @@ final class PostsRemoteDataSourceProvider
 }
 
 String _$postsRemoteDataSourceHash() =>
-    r'65fb012000b66c01045d744494cc124b1cc77210';
-
-@ProviderFor(postsRepository)
-const postsRepositoryProvider = PostsRepositoryProvider._();
-
-final class PostsRepositoryProvider
-    extends
-        $FunctionalProvider<PostsRepository, PostsRepository, PostsRepository>
-    with $Provider<PostsRepository> {
-  const PostsRepositoryProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'postsRepositoryProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$postsRepositoryHash();
-
-  @$internal
-  @override
-  $ProviderElement<PostsRepository> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  PostsRepository create(Ref ref) {
-    return postsRepository(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(PostsRepository value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<PostsRepository>(value),
-    );
-  }
-}
-
-String _$postsRepositoryHash() => r'ccf70ef9b27d82f0ffb5cce257fa3b06e2590292';
+    r'c707d7b58e8a6aad2664c5dd9714d7e4d926dc73';

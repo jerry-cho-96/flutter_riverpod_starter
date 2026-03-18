@@ -4,14 +4,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
 import 'package:riverpod3_starter/app/app.dart';
-import 'package:riverpod3_starter/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/features/auth/domain/entities/auth_session.dart';
 import 'package:riverpod3_starter/features/auth/domain/entities/user.dart';
 import 'package:riverpod3_starter/features/auth/domain/repositories/auth_repository.dart';
-import 'package:riverpod3_starter/features/posts/data/repositories/posts_repository_impl.dart';
 import 'package:riverpod3_starter/features/posts/domain/entities/post.dart';
 import 'package:riverpod3_starter/features/posts/domain/repositories/posts_repository.dart';
-import 'package:riverpod3_starter/features/products/data/repositories/products_repository_impl.dart';
 import 'package:riverpod3_starter/features/products/domain/entities/product.dart';
 import 'package:riverpod3_starter/features/products/domain/entities/products_query.dart';
 import 'package:riverpod3_starter/features/products/domain/repositories/products_repository.dart';

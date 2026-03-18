@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'package:riverpod3_starter/core/storage/secure_storage_service.dart';
-import 'package:riverpod3_starter/features/auth/data/datasources/auth_local_data_source.dart';
-import 'package:riverpod3_starter/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/local/auth_local_data_source.dart';
+import 'package:riverpod3_starter/features/auth/data/datasources/remote/auth_remote_data_source.dart';
 import 'package:riverpod3_starter/features/auth/data/models/auth_session_model.dart';
 import 'package:riverpod3_starter/features/auth/data/models/refresh_token_request.dart';
 import 'package:riverpod3_starter/features/auth/data/models/refresh_token_response.dart';

@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod3_starter/app/router/app_routes.dart';
 import 'package:riverpod3_starter/features/auth/presentation/providers/auth_controller.dart';
 import 'package:riverpod3_starter/features/auth/presentation/providers/current_user_provider.dart';
-import 'package:riverpod3_starter/shared/widgets/app_scaffold.dart';
+import 'package:riverpod3_starter/shared/widgets/layout/app_scaffold.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

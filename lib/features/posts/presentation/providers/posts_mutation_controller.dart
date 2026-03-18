@@ -1,14 +1,17 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:riverpod3_starter/features/posts/data/repositories/posts_repository_impl.dart';
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/features/posts/domain/entities/post.dart';
+import 'package:riverpod3_starter/features/posts/domain/usecases/create_post.dart';
+import 'package:riverpod3_starter/features/posts/domain/usecases/delete_post.dart';
+import 'package:riverpod3_starter/features/posts/domain/usecases/update_post.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/post_detail_provider.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/posts_list_controller.dart';
 
-part 'posts_mutation_service.g.dart';
+part 'posts_mutation_controller.g.dart';
 
-class PostsMutationService {
-  const PostsMutationService(this.ref);
+class PostsMutationController {
+  const PostsMutationController(this.ref);
 
   final Ref ref;
 
@@ -18,9 +21,12 @@ class PostsMutationService {
     required String body,
     List<String> tags = const <String>[],
   }) async {
-    final created = await ref
-        .read(postsRepositoryProvider)
-        .createPost(userId: userId, title: title, body: body, tags: tags);
+    final created = await CreatePost(ref.read(postsRepositoryProvider))(
+      userId: userId,
+      title: title,
+      body: body,
+      tags: tags,
+    );
     ref.read(postsListControllerProvider.notifier).addLocalPost(created);
     return created;
   }
@@ -31,22 +37,25 @@ class PostsMutationService {
     required String body,
     List<String> tags = const <String>[],
   }) async {
-    final updated = await ref
-        .read(postsRepositoryProvider)
-        .updatePost(postId: postId, title: title, body: body, tags: tags);
+    final updated = await UpdatePost(ref.read(postsRepositoryProvider))(
+      postId: postId,
+      title: title,
+      body: body,
+      tags: tags,
+    );
     ref.read(postsListControllerProvider.notifier).replaceLocalPost(updated);
     ref.invalidate(postDetailProvider(postId));
     return updated;
   }
 
   Future<void> deletePost(int postId) async {
-    await ref.read(postsRepositoryProvider).deletePost(postId);
+    await DeletePost(ref.read(postsRepositoryProvider))(postId);
     ref.read(postsListControllerProvider.notifier).removeLocalPost(postId);
     ref.invalidate(postDetailProvider(postId));
   }
 }
 
 @riverpod
-PostsMutationService postsMutationService(Ref ref) {
-  return PostsMutationService(ref);
+PostsMutationController postsMutationController(Ref ref) {
+  return PostsMutationController(ref);
 }

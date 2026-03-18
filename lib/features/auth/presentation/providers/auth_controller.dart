@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:riverpod3_starter/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/features/auth/domain/entities/auth_session.dart';
 
 part 'auth_controller.g.dart';

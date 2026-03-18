@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:riverpod3_starter/features/products/data/repositories/products_repository_impl.dart';
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/features/products/domain/entities/product.dart';
 import 'package:riverpod3_starter/features/products/domain/entities/products_query.dart';
 import 'package:riverpod3_starter/features/products/domain/repositories/products_repository.dart';

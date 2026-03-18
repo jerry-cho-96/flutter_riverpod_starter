@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:riverpod3_starter/features/posts/data/repositories/posts_repository_impl.dart';
+import 'package:riverpod3_starter/app/di/feature_repository_providers.dart';
 import 'package:riverpod3_starter/features/posts/domain/entities/post.dart';
 import 'package:riverpod3_starter/features/posts/domain/repositories/posts_repository.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/posts_list_controller.dart';
-import 'package:riverpod3_starter/features/posts/presentation/providers/posts_mutation_service.dart';
+import 'package:riverpod3_starter/features/posts/presentation/providers/posts_mutation_controller.dart';
 
 void main() {
   test('게시글 loadMore 시 다음 페이지를 누적한다', () async {
@@ -37,16 +37,18 @@ void main() {
     await container.read(postsListControllerProvider.future);
 
     final created = await container
-        .read(postsMutationServiceProvider)
+        .read(postsMutationControllerProvider)
         .createPost(userId: 7, title: '새 글', body: '본문', tags: const ['new']);
     expect(created.title, '새 글');
 
     final updated = await container
-        .read(postsMutationServiceProvider)
+        .read(postsMutationControllerProvider)
         .updatePost(postId: created.id, title: '수정 글', body: '수정 본문');
     expect(updated.title, '수정 글');
 
-    await container.read(postsMutationServiceProvider).deletePost(created.id);
+    await container
+        .read(postsMutationControllerProvider)
+        .deletePost(created.id);
 
     final state = container.read(postsListControllerProvider).asData?.value;
     expect(state?.items.any((item) => item.id == created.id), isFalse);

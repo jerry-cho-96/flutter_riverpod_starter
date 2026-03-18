@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:riverpod3_starter/core/widgets/async_value_view.dart';
-import 'package:riverpod3_starter/features/products/data/repositories/products_repository_impl.dart';
+import 'package:riverpod3_starter/features/products/presentation/providers/product_categories_provider.dart';
 import 'package:riverpod3_starter/features/products/presentation/providers/products_query_controller.dart';
 import 'package:riverpod3_starter/features/products/presentation/providers/selected_category_provider.dart';
+import 'package:riverpod3_starter/shared/widgets/async/async_value_view.dart';
 
 class ProductsFiltersBar extends ConsumerWidget {
   const ProductsFiltersBar({super.key});

@@ -3,12 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:riverpod3_starter/core/error/error_mapper.dart';
 import 'package:riverpod3_starter/core/error/failure.dart';
-import 'package:riverpod3_starter/core/widgets/async_value_view.dart';
 import 'package:riverpod3_starter/features/posts/domain/entities/post.dart';
 import 'package:riverpod3_starter/features/posts/presentation/providers/post_detail_provider.dart';
-import 'package:riverpod3_starter/features/posts/presentation/providers/posts_mutation_service.dart';
+import 'package:riverpod3_starter/features/posts/presentation/providers/posts_mutation_controller.dart';
 import 'package:riverpod3_starter/features/posts/presentation/widgets/post_form_dialog.dart';
-import 'package:riverpod3_starter/shared/widgets/app_scaffold.dart';
+import 'package:riverpod3_starter/shared/widgets/async/async_value_view.dart';
+import 'package:riverpod3_starter/shared/widgets/layout/app_scaffold.dart';
 
 class PostDetailPage extends ConsumerWidget {
   const PostDetailPage({required this.postId, super.key});
@@ -36,7 +36,7 @@ class PostDetailPage extends ConsumerWidget {
 
     try {
       await ref
-          .read(postsMutationServiceProvider)
+          .read(postsMutationControllerProvider)
           .updatePost(
             postId: item.id,
             title: result.title,
@@ -65,7 +65,7 @@ class PostDetailPage extends ConsumerWidget {
     Post item,
   ) async {
     try {
-      await ref.read(postsMutationServiceProvider).deletePost(item.id);
+      await ref.read(postsMutationControllerProvider).deletePost(item.id);
       if (!context.mounted) {
         return;
       }

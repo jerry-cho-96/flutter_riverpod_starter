@@ -11,7 +11,6 @@ part of 'post.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$Post {
 
@@ -22,8 +21,6 @@ mixin _$Post {
 @pragma('vm:prefer-inline')
 $PostCopyWith<Post> get copyWith => _$PostCopyWithImpl<Post>(this as Post, _$identity);
 
-  /// Serializes this Post to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
@@ -31,7 +28,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is Post&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.title, title) || other.title == title)&&(identical(other.body, body) || other.body == body)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.likes, likes) || other.likes == likes)&&(identical(other.dislikes, dislikes) || other.dislikes == dislikes)&&(identical(other.views, views) || other.views == views));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,id,userId,title,body,const DeepCollectionEquality().hash(tags),likes,dislikes,views);
 
@@ -207,11 +204,11 @@ return $default(_that.id,_that.userId,_that.title,_that.body,_that.tags,_that.li
 }
 
 /// @nodoc
-@JsonSerializable()
+
 
 class _Post implements Post {
   const _Post({required this.id, required this.userId, required this.title, required this.body, final  List<String> tags = const <String>[], this.likes = 0, this.dislikes = 0, this.views = 0}): _tags = tags;
-  factory _Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+  
 
 @override final  int id;
 @override final  int userId;
@@ -234,17 +231,14 @@ class _Post implements Post {
 @pragma('vm:prefer-inline')
 _$PostCopyWith<_Post> get copyWith => __$PostCopyWithImpl<_Post>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$PostToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _Post&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.title, title) || other.title == title)&&(identical(other.body, body) || other.body == body)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.likes, likes) || other.likes == likes)&&(identical(other.dislikes, dislikes) || other.dislikes == dislikes)&&(identical(other.views, views) || other.views == views));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,id,userId,title,body,const DeepCollectionEquality().hash(_tags),likes,dislikes,views);
 
