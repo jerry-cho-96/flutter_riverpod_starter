@@ -170,6 +170,3 @@ app.*.symbols
 *.env
 .gemini/
 gha-creds-*.json
-
-.github/
-agent_docs/
